@@ -1,6 +1,26 @@
 # BIS-Store
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.3.
+--
+2020 bis graduation project
+Improving the online stores MIS & UX through real time Angular
+ web app
+# demo-version @
+ https://bis-store.web.app/
+ 
+ ![admin dashboard](https://user-images.githubusercontent.com/83171236/164889135-251549da-1e5a-45e3-a567-6ad4ea4fe50b.png)
+# previews
+
+ ![form](https://user-images.githubusercontent.com/83171236/164889128-6ce40350-ed47-4af3-843a-f2f5346189a6.png)
+--
+![home-mobile-screen](https://user-images.githubusercontent.com/83171236/164889140-d0c32c89-a145-4845-9762-c403bf12bbe5.png)
+--
+![home-screen](https://user-images.githubusercontent.com/83171236/164889143-0c07eefb-5c1d-4c4e-80ae-d5057e923c84.png)
+--
+![order-list](https://user-images.githubusercontent.com/83171236/164889151-96f67dfb-04da-474e-a017-0bfe2231948b.png)
+--
+![sign up](https://user-images.githubusercontent.com/83171236/164889155-ca2a80fc-f2b1-474c-a3bb-3db1b3de9523.png)
+
 
 ## Development server
 
