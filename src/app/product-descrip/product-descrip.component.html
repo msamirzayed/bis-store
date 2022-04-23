@@ -1,0 +1,48 @@
+<div class="backdrop border rounded">
+  <div class="row">
+
+    <div class="col-6">
+        <img class="mimg m-2 border rounded"
+        [src]="product?.imgito">
+          <div class="container d-flex">
+            <a   (mouseover)="i(0)" class="m-1">
+              <img class=" m-2 img-thumbnail simg"
+              [src]="product?.img">
+            </a>
+            <a (mouseover)="i(1)" class="m-1">
+              <img class=" m-2 img-thumbnail simg"
+              [src]="product?.img2" *ngIf="product?.img2">
+            </a>
+            <a (mouseover)="i(2)" class="m-1">
+              <img class=" m-2 img-thumbnail simg"
+              [src]="product?.img3" *ngIf="product?.img3">
+            </a>
+          </div>
+    </div>
+
+
+    <div class="col-4 right-sec verticalLine">
+      <h2>{{product?.title}} <br> {{product?.price | currency:'USD':'symbol'}}</h2>
+      <hr>
+      <p>{{product?.description | cutt:300}}</p>
+    </div>
+
+    <div class="col-2 right-sec verticalLine">
+      <button class="btn btn-default mb-5 mr-3 bt" (click)="onClose()">X</button>
+<!--
+      <div>
+        <ngb-rating  [(rate)]="product.rate" [max]="5">
+               <ng-template let-fill="fill" let-index="index" >
+                 <span   class="star" [class.filled]="fill === 100" [class.bad]="index < 3">&#9733;</span>
+               </ng-template>
+             </ngb-rating>
+            </div> -->
+
+
+  </div>
+
+</div>
+
+
+
+

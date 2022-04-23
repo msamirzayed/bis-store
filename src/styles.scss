@@ -1,0 +1,84 @@
+/* You can add global styles to this file, and also import other style files */
+$ngx-datatable-selected-active-background: #C5F6FA;
+$ngx-datatable-selected-active-background-hover: rgba(#C5F6FA, 0.5);
+$ngx-datatable-default-background-hover: rgba(#C5F6FA, 0.1) ;
+$ngx-datatable-default-background-focus: rgba(#C5F6FA, 0.1) ;
+
+
+
+
+@import '~bootstrap/scss/bootstrap';
+@import '~@swimlane/ngx-datatable/index.css';
+@import '~@swimlane/ngx-datatable/themes/material.scss';
+@import '~@swimlane/ngx-datatable/assets/icons.css';
+@import "~font-awesome/css/font-awesome.css";
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+*{
+  box-sizing: border-box;
+}
+
+
+
+
+
+$primaryColor:#C5F6FA;
+
+.dropdown-item:active {
+ background-color:#C5F6FA !important;
+ color: black !important;
+}
+.dropdown-item:hover {
+
+   opacity: 0.9 !important;
+   color: rgba(0,0,0,0.9) !important;
+   background-color:rgba(#C5F6FA, 0.2) !important;
+ }
+
+.list-group-item.active {
+  z-index: 2 !important;
+  color: black !important;
+  background-color: $primaryColor !important;
+  border-color: $primaryColor !important;
+}
+.list-group-item.active:hover {
+  z-index: 2 !important;
+  color: black !important;
+  background-color:rgba(#C5F6FA, 0.9) !important;
+  border-color: $primaryColor !important;
+
+}
+// .list-group-item.active {
+//   z-index: 2;
+//   color: #fff;
+//   background-color: red;
+//   border-color: #007bff;
+// }
+
+.list-group-item:hover{
+  opacity: 0.9 !important;
+  color: rgba(0,0,0,0.9) !important;
+  background-color:rgba(#C5F6FA, 0.2) !important;
+}
+
+.bg-light {
+  // background: rgba(255, 255, 255, 0.96) !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.02), 0 6px 20px 0 rgba(0, 0, 0, 0.01);
+}
+
+.mat-badge-content{
+  background : $primaryColor;
+  color:black
+}
+
+.mat-tab-link:active {
+  background-color:rgba(#C5F6FA, 0.3);
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: #C5F6FA;
+}
+

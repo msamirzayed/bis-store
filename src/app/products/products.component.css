@@ -1,0 +1,70 @@
+
+@keyframes slide-up-fade-in{
+  0% {
+      opacity:0;
+      transform:  translate(0px,40px)  ;
+  }
+
+  100% {
+      opacity:1;
+      transform:  translate(0px,0px)  ;
+  }
+}
+
+@keyframes slide-left-fade-in{
+  0% {
+      opacity:0;
+      transform:  translate(-40px,0px)  ;
+  }
+
+  100% {
+      opacity:1;
+      transform:  translate(0px,0px)  ;
+  }
+}
+
+.an{
+  animation:slide-up-fade-in 0.4s
+}
+.an-left{
+  animation:slide-left-fade-in 0.2s;
+
+}
+.filt{
+display: none;
+}
+
+@media only screen and (min-width: 720px) {
+
+  .ctct{
+    margin-top:6rem
+  }
+  .smally{
+    display: none;
+  }
+
+
+}
+
+@media only screen and (max-width: 720px) {
+
+  .ctct{
+    display: none;
+  }
+
+
+}
+
+
+@media only screen and (min-width: 988px) {
+
+
+  .srch{
+    position: relative;
+    top: -3.6rem;
+    right: 1rem;
+  }
+
+
+}
+

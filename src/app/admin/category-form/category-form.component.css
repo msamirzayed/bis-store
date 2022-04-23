@@ -1,0 +1,22 @@
+ngx-datatable{
+  text-align-last: center;
+}
+
+.ad{
+background-color:#BBFDDD ;
+}
+
+.dd{
+  background-color:#FCADA2 ;
+}
+
+
+.dd:hover{
+  color:rgba(0,0,0,0.9);
+  opacity:0.9
+}
+
+.ad:hover{
+  color:rgba(0,0,0,0.9);
+  opacity:0.9
+}

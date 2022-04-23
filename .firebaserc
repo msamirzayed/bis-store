@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "bis-store": {
+      "hosting": {
+        "store": [
+          "bis-store"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "bis-store"
+  }
+}

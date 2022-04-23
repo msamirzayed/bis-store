@@ -1,0 +1,25 @@
+.ipic{
+  width: 100%;
+  max-width: 3rem;
+  height: 100vh;
+  max-height: 2rem;
+}
+
+.dd{
+  background-color: #BBFDDD;
+}
+
+.ed{
+  background-color: #BBD5FD;
+}
+
+
+.dd:hover{
+  color:rgba(0,0,0,0.9);
+  opacity:0.9
+}
+
+.ed:hover{
+  color:rgba(0,0,0,0.9);
+  opacity:0.9
+}

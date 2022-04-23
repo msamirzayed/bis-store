@@ -1,0 +1,40 @@
+
+<div *ngIf="product.title" class="card">
+    <img *ngIf="product.img" class="card-img-top fl" (click)="test()" [src]="product.img"
+    alt="{{ product.title }}" [ngClass]="{hov: too == true}"
+     (mouseover)="too = true" (mouseout)="too = false">
+  <div class="card-body">
+    <h5 class="card-title d-flex justify-content-between">{{product.title | cut:15}}
+      <span>
+        <ngb-rating  [(rate)]="rate" [max]="5">
+               <ng-template let-fill="fill" let-index="index" >
+                 <span (click)="t(index+1)" (click)="f()"  class="star" [class.filled]="fill === 100" [class.bad]="index < 3">&#9733;</span>
+               </ng-template>
+             </ngb-rating>
+           </span>
+    </h5>
+    <p class="card-text d-flex justify-content-between"> {{product.price | currency:'USD':'symbol'}}
+      <span>
+        <pre>Rate: <b>{{rate}}</b></pre>
+       </span>
+    </p>
+
+
+  </div>
+  <div *ngIf="showActions else notAvail" class="card-footer" >
+    <button
+      *ngIf="getQuantity() === 0; else updateQuantity"
+      (click)="addToCart()"
+      class="btn btn-default btn-block">Add <i class="fa fa-shopping-cart"></i></button>
+    <ng-template #updateQuantity>
+      <product-quantity [shopping-cart]="shoppingCart" [product]="product"></product-quantity>
+    </ng-template>
+
+  </div>
+  <ng-template #notAvail>
+  <div class="card-footer">
+      <button class="btn btn-default btn-block text-center disabled">item isn't available!</button>
+  </div>
+</ng-template>
+
+</div>

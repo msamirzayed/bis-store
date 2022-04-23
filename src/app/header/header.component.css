@@ -1,0 +1,29 @@
+.margino{
+  margin-right: 13rem;
+
+}
+
+
+@media  (max-width: 990px) {
+  .lk{
+    margin-left: 0rem !important;
+  }
+
+}
+
+.ts{
+  z-index: 50;
+}
+
+.material-icons:hover{
+
+
+    transition: transform 0.8s ease;
+    transform: rotate(-10deg);
+
+}
+
+
+@keyframes pop{
+  50%  {transform: scale(1.2);}
+}

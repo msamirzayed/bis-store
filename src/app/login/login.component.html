@@ -1,0 +1,132 @@
+<div class="container">
+  <mat-tab-group mat-align-tabs="center" [selectedIndex]="n">
+    <mat-tab label="Create New Account">
+       <br>
+        <div class="row justify-content-center align-items-center border rounded r">
+
+          <div class="col text-center">
+            <h2 class="mb-5">create an account</h2>
+            <hr>
+            <form (ngSubmit)="signUp(fsign.value)" #fsign="ngForm">
+              <div class="form-group">
+                <div class="input-group mb-4">
+                  <span class="input-group-text">
+                    <i class="material-icons">email</i>
+                  </span>
+                  <input
+                    ngModel
+                    name="email"
+                    type="email"
+                    class="form-control"
+                    #eml="ngModel"
+                    placeholder="email"
+                    required
+                  />
+                </div>
+                <div class="input-group mb-4">
+                  <span class="input-group-text">
+                    <i class="material-icons">face</i>
+                  </span>
+
+                  <input
+                    ngModel
+                    name="username"
+                    type="text"
+                    class="form-control"
+                    #name="ngModel"
+                    placeholder="user name "
+                    required
+                  />
+                </div>
+              </div>
+              <div class="input-group mb-4">
+                <span class="input-group-text">
+                  <i class="material-icons">lock</i>
+                </span>
+                <input
+                  #pdd="ngModel"
+                  ngModel
+                  name="password"
+                  type="password"
+                  class="form-control"
+                  placeholder="password"
+                  required
+                />
+              </div>
+              <button
+                class="btn btn-default btn-block bt mt-1"
+              [disabled]="!fsign.valid"
+              (click)="openSnackBarUp('','')"
+              >
+                Create Account
+              </button>
+
+              <hr>
+              <h2>or through</h2>
+            </form>
+            <a role="button" (click)="loginGoogle()">
+              <img src="https://img.icons8.com/cute-clipart/32/000000/google-logo.png"/>
+            </a>
+
+          </div>
+        </div>
+
+    </mat-tab>
+
+        <mat-tab label="Already User?">
+            <br>
+            <div class="row justify-content-center align-items-center border rounded r">
+              <div class="col text-center">
+                <h2 class="mb-5">Login</h2>
+            <hr>
+              <form (ngSubmit)="login(flogin.value)" #flogin="ngForm">
+                <div class="form-group">
+                  <div class="input-group mt-4">
+                    <span class="input-group-text">
+                      <i class="material-icons">email</i>
+                    </span>
+                    <input
+                      ngModel
+                      name="email"
+                      type="email"
+                      class="form-control"
+                      #emls="ngModel"
+                      placeholder="email"
+                      required
+                    />
+                  </div>
+
+                </div>
+                <div class="input-group mt-4">
+                  <span class="input-group-text">
+                    <i class="material-icons">lock</i>
+                  </span>
+                  <input
+                    #pdds="ngModel"
+                    ngModel
+                    name="password"
+                    type="password"
+                    class="form-control"
+                    placeholder="password"
+                    required
+                  />
+                </div>
+
+              <div class="alert alert-danger" *ngIf="singInr">{{singInr }}</div>
+              <hr>
+                <button
+                  class="btn btn-default bt mt-1 btn-block"
+                  [disabled]='!flogin.valid'
+                  >Login</button>
+              </form>
+              <hr>
+              <h2>or through</h2>
+              <a role="button" (click)="loginGoogle()">
+                <img src="https://img.icons8.com/cute-clipart/32/000000/google-logo.png"/>
+              </a>
+              </div>
+    </div>
+            </mat-tab>
+  </mat-tab-group>
+</div>
+

@@ -1,0 +1,213 @@
+<div class="row">
+  <div class="col-sm-12 col-md-6">
+    <mat-accordion>
+      <mat-expansion-panel expanded>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            all orders
+          </mat-panel-title>
+          <mat-panel-description>
+            select to view details
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+    <ngx-datatable
+    #table
+    class="material mt-2"
+    [columns]="columns"
+    [columnMode]="ColumnMode.force"
+    [headerHeight]="50"
+    [footerHeight]="50"
+    rowHeight="auto"
+    [rows]="orders$"
+    [limit]="l"
+    [loadingIndicator]="loadingIndicator"
+    [selected]="selected"
+    [selectionType]="SelectionType.single"
+
+    (select)="onSelect($event)"
+    >
+    <ngx-datatable-column  name="Customer" >
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{userName}}
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column  name="Date" >
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.datePlaced | date}}
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column  name="Shipping name" >
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.shipping.name}}
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column  name="Shipping city" >
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.shipping.city}}
+      </ng-template>
+    </ngx-datatable-column>
+
+    </ngx-datatable>
+  </mat-expansion-panel>
+</mat-accordion>
+  </div>
+
+
+  <div class="col-sm-12 col-md-6">
+    <mat-accordion *ngIf="show">
+      <mat-expansion-panel expanded>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            last item per order
+          </mat-panel-title>
+          <mat-panel-description>
+            select to see all order items
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+    <ngx-datatable *ngIf="show"
+    #table2
+    class="material mt-2"
+    [columns]="columns"
+    [columnMode]="ColumnMode.force"
+    [headerHeight]="50"
+    [footerHeight]="50"
+    rowHeight="auto"
+    [rows]="items"
+    [limit]="l"
+    [loadingIndicator]="loadingIndicator"
+    [selected]="selected"
+    [selectionType]="SelectionType.single"
+
+    (select)="onSelect2($event)"
+    >
+
+    <ngx-datatable-column  name="product title" >
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.productTitle}}
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column  name="product img" >
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+       <img [src]="row.productImg" class="rounded" style="width: 100%; max-width: 2rem;">
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column  name="product price" >
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.productPrice}}
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column  name="product quantity" >
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.productQuantity}}
+      </ng-template>
+    </ngx-datatable-column>
+
+
+    </ngx-datatable>
+  </mat-expansion-panel>
+</mat-accordion>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12 mt-2">
+    <mat-accordion *ngIf="show3">
+      <mat-expansion-panel expanded>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            All items
+          </mat-panel-title>
+          <mat-panel-description>
+            all orders items
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+    <ngx-datatable *ngIf="show3"
+    #table3
+    class="material mt-2"
+    [columns]="columns"
+    [columnMode]="ColumnMode.force"
+    [headerHeight]="50"
+    [footerHeight]="50"
+    rowHeight="auto"
+    [rows]="fitems"
+    [limit]="lt"
+    [loadingIndicator]="loadingIndicator"
+    [selected]="selected"
+    >
+
+    <ngx-datatable-column  name="product title" >
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.productTitle}}
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column  name="product img" >
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+       <img [src]="row.productImg" class="rounded" style="width: 100%; max-width: 2rem;">
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column  name="product price" >
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.productPrice}}
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column  name="product quantity" >
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.productQuantity}}
+      </ng-template>
+    </ngx-datatable-column>
+
+
+    </ngx-datatable>
+  </mat-expansion-panel>
+</mat-accordion>
+  </div>
+
+</div>
+
+
+

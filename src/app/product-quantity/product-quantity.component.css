@@ -1,0 +1,9 @@
+button{
+  border: solid 1px #BBD5FD;;
+
+}
+button:hover{
+  color:rgba(0,0,0,0.9);
+  opacity:0.9;
+  background-color:#BBD5FD
+}

@@ -1,0 +1,109 @@
+<div class="row mt-3">
+  <div class="col-sm">
+    <form (ngSubmit)="save(f.value)" #f="ngForm">
+      <div class="form-group">
+
+        <input type="text" class="form-control" placeholder="title"
+         [(ngModel)]='product.title' name="title" #title="ngModel" required>
+        <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
+          Title is required.
+        </div>
+        <hr>
+          <div class="input-group">
+            <span class="input-group-text">$</span>
+            <input #price="ngModel" [(ngModel)]="product.price" name="price"
+             id="price" type="number" class="form-control" required [min]="0" >
+          </div>
+          <div class="alert alert-danger" *ngIf="price.touched && price.invalid">
+            <div *ngIf="price.errors.required">Price is required.</div>
+            <div *ngIf="price.errors.min">Price should be 0 or higher.</div>
+          </div>
+        <hr>
+
+        <input type="text" class="form-control" placeholder="image Url"
+         [(ngModel)]='product.img' name="img" #img="ngModel" required (keyup)="key()">
+         <div class="alert alert-danger" *ngIf="img.touched && img.invalid">
+          <div *ngIf="img.errors.required">Image URL is required.</div>
+          <div *ngIf="img.errors.url">Please enter a valid URL.</div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="side image 1 (optional)"
+            [(ngModel)]='product.img2' name="img2" #img2="ngModel">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="side image 2 (optional)"
+            [(ngModel)]='product.img3' name="img3" #img3="ngModel">
+          </div>
+        </div>
+        <hr>
+
+        <select required #category="ngModel" class="form-control"  ngModel name="category" [(ngModel)]='product.category'>
+          <option [value]="c.category" *ngFor="let c of cat">{{c.category}}</option>
+        </select>
+        <div class="alert alert-danger" *ngIf="category.touched && category.invalid">
+          Category is required.
+        </div>
+
+        <hr>
+
+        <textarea  cols="2" rows="3" class="form-control" placeholder="description (optional)" [(ngModel)]='product.description' name="description" ></textarea>
+      </div>
+      <div class="buttons d-flex justify-content-around">
+        <input [(ngModel)]="product.rate" name="rate" type="number" style="display: none;">
+
+        <button class="btn btn-default ad" [disabled]="!f.valid">save</button>
+        <input [(ngModel)]="product.avail" name="avail" type="checkbox" checked id="switch" (click)="openSnackBar('product now:', v)"><label for="switch">Toggle</label>
+      </div>
+    </form>
+    <button class="btn btn-default dd" (click)="delete()" *ngIf="!nav">delete</button>
+  </div>
+  <div class="col-sm mt-2 mt-sm-0">
+        <div class="card" style="width: 100%;">
+          <img class="card-img-top"
+          [src]="product.imgito">
+          <div class="card-body text-center">
+            <h5 class="card-title" >{{product.title}}</h5>
+            <p class="card-text">{{product.price | currency:'USD':'symbol'}}</p>
+            <p class="card-text">{{product.description}}</p>
+          </div>
+        </div>
+
+  </div>
+  <div class="col-2" *ngIf="nav">
+      <a   [routerLink]="['/product-form']"
+      [queryParams]="{i: '0'}">
+        <img class="side-image mb-2 img-thumbnail"
+        [src]="product.img" *ngIf="img.touched">
+      </a>
+      <a [routerLink]="['/product-form']"
+      [queryParams]="{i: '1'}">
+        <img class="side-image mb-2 img-thumbnail"
+        [src]="product.img2" *ngIf="img2.touched">
+      </a>
+      <a
+            [routerLink]="['/product-form']"
+            [queryParams]="{i: '2'}">
+        <img class="side-image mb-2 img-thumbnail"
+        [src]="product.img3" *ngIf="img3.touched">
+      </a>
+  </div>
+
+
+  <div class="col-2" *ngIf="!nav">
+
+      <img class="side-image mb-2 img-thumbnail"
+      [src]="product.img" *ngIf="product.img">
+
+      <img class="side-image mb-2 img-thumbnail"
+      [src]="product.img2" *ngIf="product.img2">
+
+
+      <img class="side-image mb-2 img-thumbnail"
+      [src]="product.img3" *ngIf="product.img3">
+
+</div>
+
+</div>
+

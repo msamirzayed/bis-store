@@ -1,0 +1,105 @@
+<div class="row">
+  <div class="col-sm-12 col-md-7 mb-1">
+    <mat-accordion>
+      <mat-expansion-panel expanded>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            All Products
+          </mat-panel-title>
+          <mat-panel-description>
+            edit on selection
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="row">
+          <div class="col">
+            <input #query (keyup)="search(query.value)" type="text" class="form-control"
+            placeholder="search for product">
+          </div>
+          <div class="col-2">
+            <input type="text" class="form-control text-center" [(ngModel)]="l" placeholder="i/p">
+          </div>
+        </div>
+           <div>
+          <ngx-datatable
+            #table
+            class="material mt-2"
+            [columns]="columns"
+            [columnMode]="ColumnMode.force"
+            [headerHeight]="50"
+            [footerHeight]="50"
+            rowHeight="auto"
+            [rows]="temp"
+            [limit]="l"
+            [loadingIndicator]="loadingIndicator"
+            [selected]="selected"
+            [selectionType]="SelectionType.single"
+            (activate)="onActivate($event)"
+            (select)="onSelect($event)"
+          >
+
+          <ngx-datatable-column  name="title" >
+            <ng-template let-column="column" ngx-datatable-header-template>
+              <span>{{column.name}}</span>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{row.title}}
+            </ng-template>
+          </ngx-datatable-column>
+
+          <ngx-datatable-column  name="price">
+            <ng-template let-column="column" ngx-datatable-header-template>
+              <span>{{column.name}}</span>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{row.price | currency}}
+            </ng-template>
+          </ngx-datatable-column>
+
+          <ngx-datatable-column name="img">
+            <ng-template let-column="column" ngx-datatable-header-template>
+              <span class="material-icons">
+                insert_photo
+                </span>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                <img [src]="row.img" alt="" class="rounded ipic">
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Availability">
+            <ng-template let-column="column" ngx-datatable-header-template>
+             {{column.name}}
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <span class="material-icons" *ngIf="row.avail == true">
+               check
+                </span>
+                <span class="material-icons" *ngIf="row.avail != true">
+                  clear
+                   </span>
+
+            </ng-template>
+          </ngx-datatable-column>
+
+          <ngx-datatable-column name="category" >
+            <ng-template let-column="column" ngx-datatable-header-template>
+              <span>{{column.name}}</span>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{row.category}}
+            </ng-template>
+          </ngx-datatable-column>
+          </ngx-datatable>
+          <a class="btn btn-default dd mt-3" routerLink="/product-form"
+
+          >add new product</a>
+          <a class="btn btn-default ed mt-3 ml-3" (click)="ddd()" *ngIf="loo">edit product</a>
+        </div>
+        </mat-expansion-panel>
+        </mat-accordion>
+  </div>
+  <div class="col-sm-12 col-md-5">
+    <app-category-form></app-category-form>
+  </div>
+</div>
+
+

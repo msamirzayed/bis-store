@@ -1,0 +1,49 @@
+.ii{
+  width: 100%;
+  max-width: 3rem;
+  height: 100vh;
+  max-height: 2rem;
+  animation: slide-right-fade-in 0.2s;
+}
+@keyframes slide-right-fade-in{
+  0% {
+
+      transform:  translate(-40px,0px)  ;
+  }
+
+  100% {
+
+      transform:  translate(0px,0px)  ;
+  }
+}
+
+.clcl{
+ border: solid 2px #BBD5FD;;
+
+}
+
+.clr{
+  background-color:#FCADA2;
+
+}
+
+.chk{
+  background-color:#BBFDDD;
+
+}
+
+.clr:hover{
+  color:rgba(0,0,0,0.9);
+  opacity:0.9
+}
+.chk:hover{
+  color:rgba(0,0,0,0.9);
+  opacity:0.9
+}
+.clcl:hover{
+  color:rgba(0,0,0,0.8);
+  opacity:0.9;
+  background-color:#BBD5FD;
+}
+
+

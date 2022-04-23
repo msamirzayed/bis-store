@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col">
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            All Categories
+          </mat-panel-title>
+          <mat-panel-description>
+            select category to edit
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="row">
+          <div class="col">
+            <input #query (keyup)="searching(query.value)" type="text" class="form-control"
+            placeholder="search for category">
+          </div>
+          <div class="col-2">
+            <input type="text" class="form-control" [(ngModel)]="l" placeholder="i/p">
+          </div>
+        </div>
+        <ngx-datatable
+    #table
+    class="material mt-2"
+    [columns]="columns"
+    [columnMode]="ColumnMode.force"
+    [headerHeight]="50"
+    [footerHeight]="50"
+    rowHeight="auto"
+    [rows]="temp"
+    [limit]="l"
+    [loadingIndicator]="loadingIndicator"
+    [selected]="selected"
+    [selectionType]="SelectionType.single"
+    (activate)="onActivate($event)"
+    (select)="onSelect($event)"
+    >
+    </ngx-datatable>
+    <input #category type="text" class="form-control mt-3" placeholder="add new category">
+    <button class="btn btn-default ad m-2" (click)="add(category.value)" >add</button>
+    <button class="btn btn-default dd m-2"(click)="remove()" *ngIf="ss">remove Selection</button>
+      </mat-expansion-panel>
+      </mat-accordion>
+  </div>
+</div>

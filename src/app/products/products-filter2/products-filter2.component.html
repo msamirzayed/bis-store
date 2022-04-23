@@ -1,0 +1,18 @@
+
+  <nav mat-tab-nav-bar  color="primary" >
+    <a
+    routerLink = "/products/:id"
+    mat-tab-link
+    [active]="!k">
+    All
+  </a>
+      <a mat-tab-link  *ngFor='let c of categories$; let i = index'
+     routerLink="/products/:id"
+     [queryParams]="{category:c.category}"
+     [active]="c.category == k">
+      {{c.category}}
+    </a>
+  </nav>
+
+
+

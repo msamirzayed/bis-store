@@ -1,0 +1,53 @@
+<div class="row">
+
+  <div class="col-12">
+    <ngx-datatable
+    #table
+    class="material mt-2"
+    [columns]="columns"
+    [columnMode]="ColumnMode.force"
+    [headerHeight]="50"
+    [footerHeight]="50"
+    rowHeight="auto"
+    [rows]="orders$"
+    [limit]="l"
+    [loadingIndicator]="loadingIndicator"
+    [selected]="selected"
+    [selectionType]="SelectionType.single"
+    (activate)="onActivate($event)"
+    (select)="onSelect($event)"
+    >
+    <ngx-datatable-column  name="Shipping Name" >
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.shipping.name}}
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column  name="Date" >
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.datePlaced | date}}
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column  name="Shipping city" >
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.shipping.city}}
+      </ng-template>
+    </ngx-datatable-column>
+    </ngx-datatable>
+
+  </div>
+</div>
+
+
+
+
+
+

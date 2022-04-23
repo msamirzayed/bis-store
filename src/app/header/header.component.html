@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-2">
+  <a class="navbar-brand" role="button"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" role="button"  routerLink="/products/:id">
+          <span class="material-icons ml-5 lk">
+            store
+            </span>
+        </a>
+      </li>
+        <li class="nav-item">
+          <a class="nav-link" role="button"  routerLink="/cart">
+            <span class="material-icons ml-1 ts"
+             [matBadge]="shoppingCartItemCount" matBadgeColor="primary">
+              shopping_cart
+              </span>
+</a>
+        </li>
+    </ul>
+    <ul class="navbar-nav  nav-right margino ts">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button"
+         data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false" (click)="test()"
+
+          >
+          <span  *ngIf="!appUser">Guest</span>{{appUser?.name}}
+        </a>
+
+        <div class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item " role="button"    (click)="logl()" *ngIf="!appUser">Login</a>
+          <a class="dropdown-item" role="button"   (click)="logs()" *ngIf="!appUser">Sign Up</a>
+          <a class="dropdown-item" routerLink="/my-orders" *ngIf="appUser">My orders</a>
+          <a class="dropdown-item" routerLink="/admin-products" *ngIf="appUser?.isAdmin">Products List</a>
+          <a class="dropdown-item" routerLink="/admin-orders" *ngIf="appUser?.isAdmin">Manage Orders</a>
+          <div class="dropdown-divider" *ngIf="appUser"></div>
+          <a class="dropdown-item"  *ngIf="appUser" (click)="logout()" href="/">Logout</a>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+</nav>
+
+
