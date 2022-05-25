@@ -5,7 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 2020 bis graduation project
 Improving the online stores MIS & UX through real time Angular
  web app
-# demo-version @
+# demo-version without admin panel @
  https://bis-store.web.app/
  
  ![admin dashboard](https://user-images.githubusercontent.com/83171236/164889135-251549da-1e5a-45e3-a567-6ad4ea4fe50b.png)
